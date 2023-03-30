@@ -23,6 +23,11 @@ public class RepoListRecyclerViewAdapter extends RecyclerView.Adapter<RepoListRe
         this.context=context;
     }
 
+    public void setData(List<RepoModel> repoList) {
+        this.repoList=repoList;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public RepoListRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,18 +43,21 @@ public class RepoListRecyclerViewAdapter extends RecyclerView.Adapter<RepoListRe
         String html_url=repoList.get(position).html_url;
         holder.repoName.setText(repoName);
 
+        RepoModel repoModel=repoList.get(position);
+        holder.bind(repoModel);
 
-        if(description!=null)
-             holder.repoDescription.setText(description);
-        else
+        if(description!=null){
+             holder.repoDescription.setText(description);}
+        else {
             holder.repoDescription.setText(R.string.no_description);
+        }
 
-
+            //set onClickListener on card
             holder.repoCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    String url = repoList.get(holder.getAdapterPosition()).html_url;
+                    String url = html_url;
 
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse(url));
@@ -59,7 +67,6 @@ public class RepoListRecyclerViewAdapter extends RecyclerView.Adapter<RepoListRe
             });
 
             // Set the onClickListener for the share button
-
             holder.shareButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

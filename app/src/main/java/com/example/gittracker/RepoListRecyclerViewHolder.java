@@ -20,12 +20,10 @@ public class RepoListRecyclerViewHolder extends RecyclerView.ViewHolder {
         repoDescription=itemView.findViewById(R.id.repo_description);
         shareButton=itemView.findViewById(R.id.share_button);
         repoCardView=itemView.findViewById(R.id.repo_list_card_view);
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
 
-            }
-        });
-
+    public void bind(RepoModel repoModel) {
+        repoName.setText(repoModel.repoName);
+        repoDescription.setText(repoModel.description);
     }
 }

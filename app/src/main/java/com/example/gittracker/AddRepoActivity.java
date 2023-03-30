@@ -2,6 +2,7 @@ package com.example.gittracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -64,15 +65,16 @@ public class AddRepoActivity extends AppCompatActivity {
                                     RepoListDBHelper dbHelper = new RepoListDBHelper(getApplicationContext());
                                     dbHelper.addRepo(ownerName, repoName, description, html_url);
 
-//                                    int position = repoList.size(); // get the position where new item is inserted
-//                                    repoList.add(repoModel)
-                                    new RepoListRecyclerViewAdapter(getApplicationContext(),repoList).notifyItemInserted(repoList.size()-1);
 
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
 
                                             Toast.makeText(getApplicationContext(), "Your data saved successfully", Toast.LENGTH_LONG).show();
+                                            Intent intent = new Intent();
+                                            intent.putExtra("dataAdded", true);
+                                            setResult(RESULT_OK, intent);
+                                            finish();
                                         }
                                     });
                                 }

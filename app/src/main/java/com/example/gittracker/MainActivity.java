@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     CardView repoListCardView;
     ConstraintLayout labelEmptyListLayout;
     private static final String TAG = "MainActivity";
-
+    RepoListDBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         repoListRecyclerView = findViewById(R.id.repo_recyclerview);
 
         //Access data from database and store in repoList
-        RepoListDBHelper dbHelper = new RepoListDBHelper(getApplicationContext());
-        repoList = dbHelper.fetchRepo();
+         dbHelper= new RepoListDBHelper(getApplicationContext());
+         repoList = dbHelper.fetchRepo();
 
 
         if (repoList.isEmpty()) {
@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
             //instantiate recyclerviewAdapter
             repoListRecyclerViewAdapter = new RepoListRecyclerViewAdapter(MainActivity.this, repoList);
 
-            //add adapter to recyclerview
-            repoListRecyclerView.setAdapter(repoListRecyclerViewAdapter);
 
             repoListRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
@@ -71,32 +69,31 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-
-            Log.d(TAG, "onCreate() called");
+        //add adapter to recyclerview
+         repoListRecyclerView.setAdapter(repoListRecyclerViewAdapter);
         }
-
 
     @Override
-        protected void onStart() {
-            super.onStart();
-            Log.d(TAG, "onStart() called");
+    protected void onResume() {
+        super.onResume();
+        if (getIntent().getBooleanExtra("dataAdded", false)) {
+            // Reload data from SQLite database
+            repoList = dbHelper.fetchRepo();
+
+            if (repoList.isEmpty()) {
+                // The list is empty, so display the "Add Now" button and label
+                repoListRecyclerView.setVisibility(View.GONE);
+                labelEmptyListLayout.setVisibility(View.VISIBLE);
+            } else {
+                // The list is not empty, so display the RecyclerView with the repositories
+                repoListRecyclerView.setVisibility(View.VISIBLE);
+                labelEmptyListLayout.setVisibility(View.GONE);
+            }
+
+            // Update RecyclerView adapter with new data
+            repoListRecyclerViewAdapter.setData(repoList);
+            repoListRecyclerViewAdapter.notifyDataSetChanged();
+            repoListRecyclerView.setAdapter(repoListRecyclerViewAdapter);
         }
-
-        @Override
-        protected void onResume() {
-            super.onResume();
-
-            Log.d(TAG, "onResume() called");
-        }
-
-
-        @Override
-        public void onRestart()
-        {
-            super.onRestart();
-          //  repoListRecyclerViewAdapter.notifyItemInserted(repoList.size()-1);
-            Log.d(TAG,"onRestart called");
-        }
-
-
+    }
 }
