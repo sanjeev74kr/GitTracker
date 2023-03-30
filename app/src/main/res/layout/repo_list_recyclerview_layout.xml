@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/repo_list_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dim_10dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/dim_10dp"
+    app:cardElevation="@dimen/dim_15dp">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/main_layout"
+      app:layout_constraintBottom_toBottomOf="@id/repo_list_card_view"
+      app:layout_constraintEnd_toEndOf="@id/repo_list_card_view"
+      app:layout_constraintStart_toStartOf="@id/repo_list_card_view"
+      app:layout_constraintTop_toTopOf="@id/repo_list_card_view">
+    <TextView
+        android:id="@+id/repo_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/repo_name"
+        android:fontFamily="serif"
+        android:paddingHorizontal="@dimen/dim_10dp"
+        android:paddingVertical="@dimen/dim_5dp"
+        android:text="@string/repo_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/main_layout"
+        app:layout_constraintBottom_toTopOf="@+id/repo_description"
+        app:layout_constraintStart_toStartOf="@id/main_layout"
+        app:layout_constraintEnd_toEndOf="@id/main_layout">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/repo_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/repo_description"
+        android:fontFamily="serif"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:paddingHorizontal="@dimen/dim_10dp"
+        android:paddingVertical="@dimen/dim_5dp"
+        android:text="@string/repo_description"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_20sp"
+        android:lineSpacingExtra="@dimen/dim_5dp"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@+id/repo_name"
+        app:layout_constraintBottom_toTopOf="@id/share_button"
+        app:layout_constraintStart_toStartOf="@id/main_layout"
+        app:layout_constraintEnd_toEndOf="@id/main_layout">
+
+    </TextView>
+
+    <ImageButton
+        android:id="@+id/share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dim_10dp"
+        android:background="@color/transparent"
+        android:contentDescription="@string/share_button"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="@dimen/dim_10dp"
+        android:src="@drawable/ic_baseline_share_24"
+        app:layout_constraintBottom_toBottomOf="@id/main_layout"
+        app:layout_constraintEnd_toEndOf="@id/main_layout"
+        app:layout_constraintTop_toBottomOf="@+id/repo_description">
+
+    </ImageButton>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>

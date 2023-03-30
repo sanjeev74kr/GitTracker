@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GitTracker</string>
+    <string name="repo_name">Repo Name</string>
+    <string name="repo_description">Repo Description</string>
+    <string name="share_button">share_button</string>
+    <string name="add_git_repo">Add Git Repo</string>
+    <string name="owner_name">Owner Name</string>
+    <string name="add">ADD</string>
+    <string name="description">Description</string>
+    <string name="no_description">No description available for this repository</string>
+    <string name="no_repository">No such repository is available</string>
+</resources>
