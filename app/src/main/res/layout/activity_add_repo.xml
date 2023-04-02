@@ -1,102 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Your Favourite Github Repo Here"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:layout_gravity="center"
-        android:textSize="@dimen/font_20sp"
+        android:layout_marginVertical="@dimen/dim_80dp"
         android:fontFamily="serif"
         android:padding="@dimen/dim_5dp"
-        android:layout_marginVertical="@dimen/dim_80dp">
+        android:text="@string/add_your_favourite_github_repo_here"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_20sp"
+        android:textStyle="bold">
 
     </TextView>
 
-<androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
 
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    app:cardCornerRadius="@dimen/dim_10dp"
-    android:layout_margin="@dimen/dim_10dp">
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".AddRepoActivity">
-
-    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dim_10dp"
-        android:layout_marginVertical="@dimen/dim_15dp"
-        app:hintTextColor="@color/black"
-        android:background="@drawable/rounded_input_field"
-        android:hint="@string/owner_name"
-        android:textColorHint="@color/dark_grey">
+        android:layout_margin="@dimen/dim_10dp"
+        app:cardCornerRadius="@dimen/dim_10dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_owner_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:fontFamily="sans-serif-medium"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textCursorDrawable="@color/black">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            tools:context=".AddRepoActivity">
 
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_10dp"
+                android:layout_marginVertical="@dimen/dim_15dp"
+                android:background="@drawable/rounded_input_field"
+                android:hint="@string/owner_name"
+                android:textColorHint="@color/dark_grey"
+                app:boxBackgroundMode="none"
+                app:hintTextColor="@color/black">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/repo_name"
-        android:layout_marginHorizontal="@dimen/dim_10dp"
-        android:layout_marginVertical="@dimen/dim_15dp"
-        app:hintTextColor="@color/black"
-        android:background="@drawable/rounded_input_field"
-        android:textColorHint="@color/dark_grey">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_owner_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="@dimen/font_20sp"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@color/black">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_repo_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:background="@color/transparent"
-            android:textColor="@color/black"
-            android:fontFamily="sans-serif-medium"
-            android:textCursorDrawable="@color/black">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_10dp"
+                android:layout_marginVertical="@dimen/dim_15dp"
+                android:background="@drawable/rounded_input_field"
+                android:hint="@string/repo_name"
+                android:textColorHint="@color/dark_grey"
+                app:boxBackgroundMode="none"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_repo_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:fontFamily="sans-serif-medium"
+                    android:inputType="text"
+                    android:textSize="@dimen/font_20sp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@color/black">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/add_repo_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:minWidth="@dimen/dim_150dp"
-        android:minHeight="@dimen/dim_60dp"
-        android:layout_marginVertical="@dimen/dim_15dp"
-        android:text="@string/add"
-        android:textColor="@color/black"
-        android:textSize="@dimen/font_20sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_button">
-    </Button>
-</LinearLayout>
-</androidx.cardview.widget.CardView>
+            <Button
+                android:id="@+id/add_repo_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="@dimen/dim_15dp"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="sans-serif-medium"
+                android:minWidth="@dimen/dim_150dp"
+                android:minHeight="48dp"
+                android:text="@string/add"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_20sp"
+                android:textStyle="bold"></Button>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

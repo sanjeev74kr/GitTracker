@@ -2,6 +2,7 @@ package com.example.gittracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,9 +22,7 @@ public class AddRepoActivity extends AppCompatActivity {
  Button addBtn;
 
  List<RepoModel> repoList;
-
  String ownerName="",repoName="",description="",html_url="";
-
  ConsumeApi consumeApi;
 
  private static final String TAG = "AddRepoActivity";
@@ -53,6 +52,7 @@ public class AddRepoActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(String responseBody) {
                             try {
+
                                 Gson gson = new Gson();
                                 RepoModel repoModel = gson.fromJson(responseBody, RepoModel.class);
                                 Log.d(TAG,"repoModel:"+repoModel.html_url);
@@ -65,16 +65,18 @@ public class AddRepoActivity extends AppCompatActivity {
                                     RepoListDBHelper dbHelper = new RepoListDBHelper(getApplicationContext());
                                     dbHelper.addRepo(ownerName, repoName, description, html_url);
 
+                                  // When data is added to the database
+                                    boolean isDataAdded = true;
+                                    Intent resultIntent = new Intent();
+                                    resultIntent.putExtra("isDataAdded", isDataAdded);
+                                    setResult(Activity.RESULT_OK, resultIntent);
+                                    finish();
 
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
 
                                             Toast.makeText(getApplicationContext(), "Your data saved successfully", Toast.LENGTH_LONG).show();
-                                            Intent intent = new Intent();
-                                            intent.putExtra("dataAdded", true);
-                                            setResult(RESULT_OK, intent);
-                                            finish();
                                         }
                                     });
                                 }

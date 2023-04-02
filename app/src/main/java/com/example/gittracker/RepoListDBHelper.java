@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class RepoListDBHelper extends SQLiteOpenHelper {
   private static final String DATABASE_NAME="RepoListDB";
-  private static final int DATABASE_VERSION=5;
+  private static final int DATABASE_VERSION=6;
   private static  final String TABLE_NAME="githubRepo";
 
   //DECLARE TABLE- COLUMN NAME
@@ -39,7 +39,7 @@ public class RepoListDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE "+TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
 
@@ -53,6 +53,8 @@ public class RepoListDBHelper extends SQLiteOpenHelper {
         values.put(DESCRIPTION,description);
         values.put(HTML_URL,html_url);
         db.insert(TABLE_NAME,null,values);
+
+        db.close();
     }
 
     //Method for getting data
@@ -61,6 +63,7 @@ public class RepoListDBHelper extends SQLiteOpenHelper {
       SQLiteDatabase db= this.getReadableDatabase();
       Cursor cursor= db.rawQuery("SELECT * FROM "+TABLE_NAME,null);
       ArrayList<RepoModel> arrayList= new ArrayList<>();
+
       while(cursor.moveToNext())
       {
           RepoModel repoModel=new RepoModel();
@@ -71,6 +74,15 @@ public class RepoListDBHelper extends SQLiteOpenHelper {
           repoModel.html_url=cursor.getString(4);
           arrayList.add(repoModel);
       }
+        db.close();
       return arrayList;
+
+    }
+
+    public void deleteRepo(int id)
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        db.delete(TABLE_NAME, KEY_ID + "=?", new String[] { String.valueOf(id) });
+        db.close();
     }
 }

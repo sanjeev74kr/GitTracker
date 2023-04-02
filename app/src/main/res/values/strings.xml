@@ -9,4 +9,8 @@
     <string name="description">Description</string>
     <string name="no_description">No description available for this repository</string>
     <string name="no_repository">No such repository is available</string>
+    <string name="delete_button">delete_button</string>
+    <string name="add_your_favourite_github_repo_here">Add Your Favourite Github Repo Here</string>
+    <string name="empty_list">Empty List</string>
+    <string name="track_your_favourite_github_repo_here">Track Your Favourite Github Repo Here</string>
 </resources>

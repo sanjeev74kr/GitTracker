@@ -1,15 +1,7 @@
 package com.example.gittracker;
-
-import android.util.Log;
-
 import androidx.annotation.NonNull;
-
-import com.google.gson.Gson;
-
 import java.io.IOException;
-
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -39,7 +31,7 @@ public class ConsumeApi {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 String responseBody = response.body().string();
-                callback.onSuccess(responseBody);
+                    callback.onSuccess(responseBody);
             }
         });
     }

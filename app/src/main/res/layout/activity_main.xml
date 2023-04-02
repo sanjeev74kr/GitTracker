@@ -16,6 +16,7 @@
     app:layout_constraintBottom_toTopOf="@+id/fab_add_repo">
     <ImageView
         android:id="@+id/empty_list_image_view"
+        android:contentDescription="@string/empty_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="@dimen/dim_150dp"
@@ -31,7 +32,7 @@
         android:id="@+id/empty_list_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Track Your Favourite Github Repo Here"
+        android:text="@string/track_your_favourite_github_repo_here"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
