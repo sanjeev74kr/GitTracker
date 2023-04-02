@@ -1,4 +1,5 @@
-package com.example.gittracker;
+package myapps.sanjeev.gittracker;
+
 import androidx.annotation.NonNull;
 import java.io.IOException;
 import okhttp3.Call;

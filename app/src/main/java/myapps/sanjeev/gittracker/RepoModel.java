@@ -1,4 +1,4 @@
-package com.example.gittracker;
+package myapps.sanjeev.gittracker;
 
 public class RepoModel {
     int repoId;

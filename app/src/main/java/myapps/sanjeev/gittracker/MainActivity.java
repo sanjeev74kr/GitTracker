@@ -1,4 +1,4 @@
-package com.example.gittracker;
+package myapps.sanjeev.gittracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;

@@ -1,4 +1,4 @@
-package com.example.gittracker;
+package myapps.sanjeev.gittracker;
 
 import android.content.ContentValues;
 import android.content.Context;

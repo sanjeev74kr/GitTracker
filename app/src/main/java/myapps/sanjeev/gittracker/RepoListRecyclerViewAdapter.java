@@ -1,4 +1,4 @@
-package com.example.gittracker;
+package myapps.sanjeev.gittracker;
 
 import android.content.Context;
 import android.content.DialogInterface;

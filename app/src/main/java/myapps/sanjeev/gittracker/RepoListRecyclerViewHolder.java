@@ -1,4 +1,4 @@
-package com.example.gittracker;
+package myapps.sanjeev.gittracker;
 
 import android.view.View;
 import android.widget.ImageButton;
