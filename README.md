@@ -1,6 +1,6 @@
 # gitTracker
-It is an an android app which  shows list of different repositories added by the user and allow user to add a new one as well. 
+It is an Android app that helps users to add their favorite Github repositories in one place.
 
-It fetches details from github using github API.
+It fetches details from GitHub using GitHub API.
 
-It also stores data locally and have share option.
+It also stores data locally and has a share option.
